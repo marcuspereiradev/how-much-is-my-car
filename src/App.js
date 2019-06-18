@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Home from './components/home';
+import AppContent from './components/app-content';
 
 class App extends Component {
   constructor() {
@@ -9,7 +9,7 @@ class App extends Component {
       brands: [],
       models: [],
       years: [],
-      car_Iformation: [],
+      car_information: {},
       brand_id: '',
       model_id: '',
       year_id: ''
@@ -53,14 +53,13 @@ class App extends Component {
       year_id: year_id
     })
   }
-  
+
   SearchButton(event) {
     event.preventDefault();
     axios.get(`http://fipeapi.appspot.com/api/1/carros/veiculo/${this.state.brand_id}/${this.state.model_id}/${this.state.year_id}.json`)
       .then((res) => {
-        // console.log(res.data)
         this.setState({
-          car_Iformation: res.data
+          car_information: res.data
         })
       })
   }
@@ -68,11 +67,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {console.log(this.state.car_Iformation)}
-        <Home 
+        <AppContent
           brands={this.state.brands}
           models={this.state.models}
           years={this.state.years}
+          car_information={this.state.car_information}
           handleChangeBrand={(event) => this.handleChangeBrand(event)}
           handleChangeModel={(event) => this.handleChangeModel(event)}
           handleChangeYear={(event) => this.handleChangeYear(event)}
