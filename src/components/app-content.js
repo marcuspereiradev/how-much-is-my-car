@@ -1,9 +1,10 @@
 import React from 'react';
 import Home from './home';
 import Information from './information';
+import '../styles/container.scss'
 
 const AppContent = ({brands, models, years, car_information, handleChangeBrand, handleChangeModel, handleChangeYear, SearchButton}) => (
-  <div>
+  <div className=''>
     <Home
       brands={brands}
       models={models}
