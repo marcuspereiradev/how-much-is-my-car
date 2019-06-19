@@ -2,13 +2,15 @@ import React from 'react';
 import Header from './header';
 import '../styles/container.scss'
 import '../styles/home.scss';
+import Lightbox from './lightbox';
 import Footer from './footer';
 
-const Home = ({brands, models, years, handleChangeBrand, handleChangeModel, handleChangeYear, SearchButton}) => {
+const Home = ({brands, models, years, car_information, handleChangeBrand, handleChangeModel, handleChangeYear, SearchButton}) => {
   return (
     <div>
       <Header />
       <div className='container'>
+        <Lightbox car_information={car_information}/>
         <p className='information'>
           Para realizar o cálculo do valor do seu carro, preencha
           os dados abaixo e clique em "Consultar".
