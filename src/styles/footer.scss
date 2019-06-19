@@ -1,0 +1,13 @@
+@import './custom-colors';
+
+.footer {
+  background: $gradient-primary;
+  font-size: 0.8em;
+  padding: 15px 0;
+  text-align: center;
+  color: $custom-light-gray;
+
+  a {
+    color: inherit;
+  }
+}
