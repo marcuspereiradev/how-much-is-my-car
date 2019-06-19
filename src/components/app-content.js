@@ -1,6 +1,5 @@
 import React from 'react';
 import Home from './home';
-import Information from './information';
 import '../styles/container.scss'
 
 const AppContent = ({brands, models, years, car_information, handleChangeBrand, handleChangeModel, handleChangeYear, SearchButton}) => (
@@ -9,16 +8,12 @@ const AppContent = ({brands, models, years, car_information, handleChangeBrand, 
       brands={brands}
       models={models}
       years={years}
+      car_information={car_information}
       handleChangeBrand={handleChangeBrand}
       handleChangeModel={handleChangeModel}
       handleChangeYear={handleChangeYear}
       SearchButton={SearchButton}
-    />
-
-    {car_information && <Information
-      car_information={car_information}
-    />}
-
+      />
   </div>
 )
 
