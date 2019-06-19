@@ -1,0 +1,37 @@
+@import './custom-colors';
+
+.lightbox {
+
+  display: none;
+
+  .lightbox-content {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 0px 20px;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+
+    .lightbox-items {
+      background: #fff;
+      border-radius: 4px;
+      color: $custom-light-blue;
+      padding: 20px;
+      text-align: center;
+      text-transform: uppercase;
+      width: 100%;
+
+      h1 {
+        font-size: 2em;
+      }
+
+      .price {
+        color: $custom-primary;
+        font-size: 1.5em;
+        padding: 20px 0;
+      }
+    }
+  }
+}
