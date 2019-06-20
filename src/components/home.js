@@ -1,9 +1,9 @@
 import React from 'react';
 import Header from './header';
-import '../styles/container.scss'
-import '../styles/home.scss';
 import Lightbox from './lightbox';
 import Footer from './footer';
+import '../styles/container.scss'
+import '../styles/home.scss';
 
 const Home = ({brands, models, years, car_information, handleChangeBrand, handleChangeModel, handleChangeYear, SearchButton}) => {
   return (
