@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Header from './header';
 import Home from './home';
+import Footer from './footer';
 import FipeAPI from '../services/FipeAPI';
 import '../styles/container.scss';
 
@@ -53,6 +55,7 @@ class AppContent extends Component {
     return (
       <div className=''>
         {console.log(this.state.car_information)}
+        <Header />
         <Home
           brands={this.state.brands}
           models={this.state.models}
@@ -64,6 +67,7 @@ class AppContent extends Component {
           handleChangeYear={(event) => this.handleChangeYear(event)}
           searchButton={(event) => this.searchButton(event)}
         />
+        <Footer />
       </div>
     )
   }

@@ -1,8 +1,6 @@
 import React from 'react';
-import Header from './header';
 import Lightbox from './lightbox';
 import CarFilter from './carFilter';
-import Footer from './footer';
 import '../styles/container.scss'
 import '../styles/home.scss';
 
@@ -18,7 +16,6 @@ const Home = ({
   searchButton}) => {
   return (
     <div>
-      <Header />
       <div className='container'>
         <Lightbox
           car_information={car_information}
@@ -38,7 +35,6 @@ const Home = ({
           searchButton={searchButton}
         />
       </div>
-      <Footer />
     </div>
   )
 
