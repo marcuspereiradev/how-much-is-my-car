@@ -17,25 +17,23 @@ class AppContent extends Component {
       year_id: ''
     };
   }
-  
+
   async componentWillMount() {
-    const response = await fetch('http://fipeapi.appspot.com/api/1/carros/marcas.json');
-    const data = await response.json();
-    this.setState({ brands: data });
+    const allBrands = await FipeAPI.fetchCarBrands();
+    this.setState({ brands: allBrands });
   }
 
   async handleChangeBrand(event) {
     const brand_id = event.target.value;
-    const response = await fetch(`http://fipeapi.appspot.com/api/1/carros/veiculos/${brand_id}.json`);
-    const data = await response.json();
-    this.setState({ models: data, brand_id: brand_id });
+    const allModels = await FipeAPI.fetchCarModels(brand_id);
+    this.setState({ models: allModels, brand_id: brand_id })
   }
 
   async handleChangeModel(event) {
     const model_id = event.target.value;
-    const response = await fetch(`http://fipeapi.appspot.com/api/1/carros/veiculo/${this.state.brand_id}/${model_id}.json`);
-    const data = await response.json()
-    this.setState({ years: data, model_id: model_id });
+    const brand_id = this.state.brand_id;
+    const allYears = await FipeAPI.fetchCarYears(brand_id, model_id);
+    this.setState({ years: allYears, model_id: model_id });
   }
 
   handleChangeYear(event) {
@@ -45,18 +43,18 @@ class AppContent extends Component {
 
   async SearchButton(event) {
     event.preventDefault();
-    const response = await fetch(`http://fipeapi.appspot.com/api/1/carros/veiculo/${this.state.brand_id}/${this.state.model_id}/${this.state.year_id}.json`);
-    const data = await response.json();
-    this.setState({ car_information: data });
+    const brand_id = this.state.brand_id;
+    const model_id = this.state.model_id;
+    const year_id = this.state.year_id;
+    const car_information = await FipeAPI.fetchCarInformation(brand_id, model_id, year_id);
+    this.setState({ car_information: car_information });
   }
 
   render() {
     return (
       <div className=''>
         {console.log(this.state.car_information)}
-        {/* {console.log(fetch_car_brands)} */}
         <Home
-          // brands={() => this.FipeAPI.fetch_car_brands()}
           brands={this.state.brands}
           models={this.state.models}
           years={this.state.years}
