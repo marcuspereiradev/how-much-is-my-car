@@ -1,50 +1,42 @@
 import React from 'react';
 import Header from './header';
 import Lightbox from './lightbox';
+import CarFilter from './carFilter';
 import Footer from './footer';
 import '../styles/container.scss'
 import '../styles/home.scss';
 
-const Home = ({brands, models, years, car_information, handleChangeBrand, handleChangeModel, handleChangeYear, SearchButton}) => {
+const Home = ({
+  brands, 
+  models,
+  years,
+  car_information,
+  className,
+  handleChangeBrand,
+  handleChangeModel,
+  handleChangeYear,
+  searchButton}) => {
   return (
     <div>
       <Header />
       <div className='container'>
-        <Lightbox car_information={car_information}/>
+        <Lightbox
+          car_information={car_information}
+          className={className}
+        />
         <p className='information'>
           Para realizar o cálculo do valor do seu carro, preencha
           os dados abaixo e clique em "Consultar".
         </p>
-        <form className='form'>
-          <div className='form-content'>
-            <label>Marca, modelo e ano</label>
-            <select onChange={handleChangeBrand}>
-              <option value=''>Selecione uma marca</option>
-              {
-                brands.map((brand, key) => {
-                  return <option key={key} value={brand.id}>{brand.name}</option>
-                })
-              }
-            </select>
-            <select onChange={handleChangeModel}>
-              <option value=''>Selecione um modelo</option>
-              {
-                models.map((model, key) => {
-                  return <option key={key} value={model.id}>{model.name}</option>
-                })
-              }
-            </select>
-            <select onChange={handleChangeYear}>
-              <option value=''>Selecione o ano</option>
-              {
-                years.map((year, key) => {
-                  return <option key={key} value={year.id}>{year.name}</option>
-                })
-              }
-            </select>
-          </div>
-        <button className='btn' onClick={SearchButton} type='button'>Consultar</button>
-        </form>
+        <CarFilter
+          brands={brands}
+          models={models}
+          years={years}
+          handleChangeBrand={handleChangeBrand}
+          handleChangeModel={handleChangeModel}
+          handleChangeYear={handleChangeYear}
+          searchButton={searchButton}
+        />
       </div>
       <Footer />
     </div>

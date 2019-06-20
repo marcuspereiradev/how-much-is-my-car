@@ -14,7 +14,8 @@ class AppContent extends Component {
       car_information: {},
       brand_id: '',
       model_id: '',
-      year_id: ''
+      year_id: '',
+      className: ''
     };
   }
 
@@ -41,13 +42,11 @@ class AppContent extends Component {
     this.setState({ year_id: year_id });
   }
 
-  async SearchButton(event) {
+  async searchButton(event) {
     event.preventDefault();
-    const brand_id = this.state.brand_id;
-    const model_id = this.state.model_id;
-    const year_id = this.state.year_id;
+    const { brand_id, model_id, year_id} = this.state;
     const car_information = await FipeAPI.fetchCarInformation(brand_id, model_id, year_id);
-    this.setState({ car_information: car_information });
+    this.setState({ car_information: car_information, className: 'lightbox.active' });
   }
 
   render() {
@@ -59,10 +58,11 @@ class AppContent extends Component {
           models={this.state.models}
           years={this.state.years}
           car_information={this.state.car_information}
+          className={this.state.className}
           handleChangeBrand={(event) => this.handleChangeBrand(event)}
           handleChangeModel={(event) => this.handleChangeModel(event)}
           handleChangeYear={(event) => this.handleChangeYear(event)}
-          SearchButton={(event) => this.SearchButton(event)}
+          searchButton={(event) => this.searchButton(event)}
         />
       </div>
     )

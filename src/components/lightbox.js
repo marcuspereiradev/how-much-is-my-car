@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/lightbox.scss';
 
-const Lightbox = ({ car_information }) => (
+const Lightbox = ({ car_information, className }) => (
   <div className='lightbox'>
     <div className='lightbox-content'>
       <div className='lightbox-items'>
