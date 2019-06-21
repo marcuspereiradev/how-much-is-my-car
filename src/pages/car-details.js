@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/car-details.scss';
+
 import FipeAPI from '../services/FipeAPI';
+
+import '../styles/car-details.scss';
 
 class CarDetails extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      carInformation: {}
-    }
+  state = {
+    carInformation: {}
   }
 
   async componentWillMount() {
     const { brandId, modelId, yearId } = this.props.match.params;
+
     const carInformation = await FipeAPI.fetchCarInformation(brandId, modelId, yearId);
-    this.setState({ carInformation: carInformation })
+
+    this.setState({ carInformation });
   }
 
   render() {
     return (
-      <div className='lightbox-content'>
-        {console.log(this.state.carInformation)}
-        <div className='lightbox-items'>
+      <div className='car-details-content'>
+        <div className='car-details-items'>
           <h3>Sobre o veículo:</h3>
           <p>Marca: <span>{this.state.carInformation.marca}</span></p>
           <p>Modelo: <span>{this.state.carInformation.name}</span></p>

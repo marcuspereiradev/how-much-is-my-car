@@ -1,12 +1,13 @@
 @import './custom-colors';
  
-.lightbox-content {
+.car-details-content {
   display: flex;
   flex: 1;
   justify-content: center;
 
-  .lightbox-items {
-    padding: 60px 0;
+  .car-details-items {
+    height: 100%;
+    padding: 100px 0;
     text-transform: uppercase;
 
     h3 {
@@ -44,11 +45,11 @@
       text-shadow: 0px 1px 3px #003d08;
       text-transform: uppercase;
       width: 235px;
-    }
-    
-    .link:hover {
-      background:rgb(36, 160, 88);
-      transition: 0.3s;
+      
+      &:hover {
+        background:rgb(36, 160, 88);
+        transition: 0.3s;
+      }
     }
   }
 }

@@ -8,6 +8,13 @@
 
 }
 
+@media (max-width: 767.98px) {
+  .information {
+    margin: 0 auto;
+    width: calc(300px - 20px);
+  }
+}
+
 @media (min-width: 767.98px) {
   .information {
     margin: 0 auto;

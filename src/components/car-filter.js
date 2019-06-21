@@ -1,84 +1,114 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import FipeAPI from '../services/FipeAPI';
+
+import Select from './select';
+
 import '../styles/car-filter.scss';
 
 class CarFilter extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      brands: [],
-      models: [],
-      years: [],
-      carInformation: {},
-      brandId: '',
-      modelId: '',
-      yearId: '',
-    };
+  state = {
+    brands: [],
+    models: [],
+    years: [],
+    brandId: null,
+    modelId: null,
+    yearId: null,
   }
 
   async componentWillMount() {
-    const allBrands = await FipeAPI.fetchCarBrands();
-    this.setState({ brands: allBrands });
+    const brands = await FipeAPI.fetchCarBrands();
+
+    this.setState({ brands });
   }
 
-  async handleChangeBrand(event) {
+  handleChangeBrand = async (event) => {
     const brandId = event.target.value;
-    const allModels = await FipeAPI.fetchCarModels(brandId);
-    this.setState({ models: allModels, brandId: brandId })
+
+    this.setState({
+      models: [],
+      years: [],
+      brandId: null,
+      modelId: null,
+      yearId: null,
+    });
+
+    if (brandId === '') return;
+
+    const models = await FipeAPI.fetchCarModels(brandId);
+
+    this.setState({ models, brandId })
   }
 
-  async handleChangeModel(event) {
+  handleChangeModel = async (event) => {
     const modelId = event.target.value;
     const brandId = this.state.brandId;
-    const allYears = await FipeAPI.fetchCarYears(brandId, modelId);
-    this.setState({ years: allYears, modelId: modelId });
+
+    this.setState({
+      years: [],
+      modelId: null,
+      yearId: null,
+    });
+
+    if (modelId === '') return;
+
+    const years = await FipeAPI.fetchCarYears(brandId, modelId);
+
+    this.setState({ years, modelId });
   }
 
-  handleChangeYear(event) {
+  handleChangeYear = (event) => {
     const yearId = event.target.value;
-    this.setState({ yearId: yearId });
+
+    this.setState({
+      yearId: null
+    });
+
+    if (yearId === '') return;
+
+    this.setState({ yearId });
   }
 
-  async searchButton(event) {
-    event.preventDefault();
-    const { brandId, modelId, yearId} = this.state;
-    const carInformation = await FipeAPI.fetchCarInformation(brandId, modelId, yearId);
-    this.setState({ carInformation: carInformation });
+  searchUrl = () => {
+    if (this.state.brandId === null || 
+        this.state.modelId === null || 
+        this.state.yearId === null ) return '#'
+
+    return `/about/${this.state.brandId}/${this.state.modelId}/${this.state.yearId}`;      
   }
 
   render() {
     return (
-      <form className='form' action={`/about/${this.state.brandId}/${this.state.modelId}/${this.state.yearId}`}>
+      <div className='form' >
         <div className='form-content'>
           <label>Marca, modelo e ano</label>
-          <select onChange={(event) => this.handleChangeBrand(event)}>
-            <option value=''>Selecione uma marca</option>
-            {
-              this.state.brands.map((brand, key) => {
-                return <option key={key} value={brand.id}>{brand.name}</option>
-              })
-            }
-          </select>
-          <select onChange={(event) => this.handleChangeModel(event)} >
-            <option value=''>Selecione um modelo</option>
-            {
-              this.state.models.map((model, key) => {
-                return <option key={key} value={model.id}>{model.name}</option>
-              })
-            }
-          </select>
-          <select onChange={(event) => this.handleChangeYear(event)}>
-            <option value=''>Selecione o ano</option>
-            {
-              this.state.years.map((year, key) => {
-                return <option key={key} value={year.id}>{year.name}</option>
-              })
-            }
-          </select>
+          <Select
+            onChange={this.handleChangeBrand}
+            placeholder='Selecione uma marca'
+            collection={this.state.brands}
+          />
+
+          <Select
+            onChange={this.handleChangeModel}
+            placeholder='Selecione um modelo'
+            collection={this.state.models}
+            disabled={this.state.models.length === 0}
+          />
+
+          <Select
+            onChange={this.handleChangeYear}
+            placeholder='Selecione o ano'
+            collection={this.state.years}
+            disabled={this.state.years.length === 0}
+          />
         </div>
-        <button className='btn' onSubmit={(event) => this.searchButton(event)} type='submit'>Consultar</button>
-      </form>
+        <Link to={this.searchUrl()} 
+          className={this.state.yearId === null ? 'btn disabled' : 'btn'} 
+          >Consultar
+        </Link>
+      </div>
     )
   }
 }
