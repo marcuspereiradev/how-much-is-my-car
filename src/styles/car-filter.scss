@@ -19,7 +19,7 @@
   
     select {
       background: none;
-      border: 1px solid $custom-primary;
+      border: 1px solid $custom-gray;
       border-radius: 4px;
       color: $custom-gray;
       cursor: pointer;
@@ -30,6 +30,7 @@
     }
   
     select:hover {
+      border: 1px solid $custom-primary;
       color: $custom-primary;
       transition: 0.3s;
     }

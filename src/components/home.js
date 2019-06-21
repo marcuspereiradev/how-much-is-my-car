@@ -1,5 +1,5 @@
 import React from 'react';
-import CarFilter from './carFilter';
+import CarFilter from './car-filter';
 import '../styles/container.scss'
 import '../styles/home.scss';
 

@@ -49,7 +49,7 @@ class CarFilter extends Component {
 
   render() {
     return (
-      <form className='form'>
+      <form className='form' action={`/about/${this.state.brandId}/${this.state.modelId}/${this.state.yearId}`}>
         <div className='form-content'>
           <label>Marca, modelo e ano</label>
           <select onChange={(event) => this.handleChangeBrand(event)}>
@@ -77,8 +77,7 @@ class CarFilter extends Component {
             }
           </select>
         </div>
-        <button className='btn' onClick={(event) => this.searchButton(event)} type='button'>Consultar</button>
-      {console.log(this.state.carInformation)}
+        <button className='btn' onSubmit={(event) => this.searchButton(event)} type='submit'>Consultar</button>
       </form>
     )
   }
