@@ -6,20 +6,20 @@ class FipeAPI {
     return data;
   }
 
-  static async fetchCarModels(brand_id) {
-    const response = await fetch(`http://fipeapi.appspot.com/api/1/carros/veiculos/${brand_id}.json`);
+  static async fetchCarModels(brandId) {
+    const response = await fetch(`http://fipeapi.appspot.com/api/1/carros/veiculos/${brandId}.json`);
     const data = await response.json();
     return data;
   }
 
-  static async fetchCarYears(brand_id, model_id) {
-    const response = await fetch(`http://fipeapi.appspot.com/api/1/carros/veiculo/${brand_id}/${model_id}.json`);
+  static async fetchCarYears(brandId, modelId) {
+    const response = await fetch(`http://fipeapi.appspot.com/api/1/carros/veiculo/${brandId}/${modelId}.json`);
     const data = await response.json();
     return data;
   }
 
-  static async fetchCarInformation(brand_id, model_id, year_id) {
-    const response = await fetch(`http://fipeapi.appspot.com/api/1/carros/veiculo/${brand_id}/${model_id}/${year_id}.json`);
+  static async fetchCarInformation(brandId, modelId, yearId) {
+    const response = await fetch(`http://fipeapi.appspot.com/api/1/carros/veiculo/${brandId}/${modelId}/${yearId}.json`);
     const data = await response.json();
     return data;
   }
