@@ -52,4 +52,9 @@
       }
     }
   }
+  @media (max-width: 767.98px) {
+    .car-details-items {
+      width: calc(300px - 20px);
+    }
+  }
 }
