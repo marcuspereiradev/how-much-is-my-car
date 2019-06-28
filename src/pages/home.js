@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className='container'>
       <p className='information'>
-        Para realizar o cálculo do valor do seu carro, preencha
+        Para saber o valor do seu carro, preencha
         os dados abaixo e clique em "Consultar".
       </p>
       <CarFilter />
