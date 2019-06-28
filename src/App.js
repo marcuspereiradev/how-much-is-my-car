@@ -6,8 +6,6 @@ import Home from './pages/home';
 import CarDetails from './pages/car-details';
 import Footer from './components/footer';
 
-import './App.scss';
-
 class App extends Component {
   render() {
     return (
