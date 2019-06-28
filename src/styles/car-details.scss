@@ -6,8 +6,7 @@
   justify-content: center;
 
   .car-details-items {
-    height: 100%;
-    padding: 100px 0;
+    padding: 30px 0;
     text-transform: uppercase;
 
     h3 {
@@ -23,11 +22,19 @@
       }
     }
 
-    .price {
-      color: $custom-primary;
-      font-size: 2em;
-      margin: 30px 0;
+    .price-content {
+      padding: 30px 0;
       text-align: center;
+
+      .price {
+        border-bottom: 1px solid $custom-primary;
+        color: $custom-primary;
+        font-size: 2em;
+      }
+
+      .reference {
+        font-size: 0.8em;
+      }
     }
 
     .link {
@@ -42,19 +49,15 @@
       font-size: 1em;
       font-weight: 500;
       padding: 10px 20px;
+      text-align: center;
       text-shadow: 0px 1px 3px #003d08;
       text-transform: uppercase;
       width: 235px;
       
       &:hover {
         background:rgb(36, 160, 88);
-        transition: 0.3s;
+        transition: all 0.3s ease;
       }
-    }
-  }
-  @media (max-width: 767.98px) {
-    .car-details-items {
-      width: calc(300px - 20px);
     }
   }
 }

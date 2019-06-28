@@ -3,10 +3,10 @@
 .footer {
   background: $gradient-primary;
   box-shadow: inset 0px 3px 3px rgb(35, 61, 117);
+  color: $custom-light-gray;
   font-size: 0.8em;
   padding: 15px 0;
   text-align: center;
-  color: $custom-light-gray;
 
   a {
     color: inherit;
