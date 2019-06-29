@@ -38,9 +38,8 @@ class FipeAPI {
 
   static async fetchCarInformation(brandId, modelId, yearId) {
     try {
-      const response = await fetch(`http://fipeapi.appspsot.com/api/1/carros/veiculo/${brandId}/${modelId}/${yearId}.json`);
+      const response = await fetch(`http://fipeapi.appspot.com/api/1/carros/veiculo/${brandId}/${modelId}/${yearId}.json`);
       const data = await response.json();
-      console.log(data);
       return data;
     }
     catch(err) {

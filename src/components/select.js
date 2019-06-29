@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Select = ({onChange, placeholder, collection, disabled}) => (
   <select onChange={onChange} disabled={disabled}>
@@ -10,5 +11,12 @@ const Select = ({onChange, placeholder, collection, disabled}) => (
     }
   </select>
 )
+
+Select.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  collection: PropTypes.array,
+  disabled: PropTypes.bool
+};
 
 export default Select;

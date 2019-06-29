@@ -20,7 +20,7 @@ class CarFilter extends Component {
 
   async componentWillMount() {
     const brands = await FipeAPI.fetchCarBrands();
-
+    
     this.setState({ brands });
   }
 
