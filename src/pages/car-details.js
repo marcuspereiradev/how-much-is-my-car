@@ -25,14 +25,14 @@ class CarDetails extends Component {
         <div className='car-details-content'>
           <div className='car-details-items'>
             <h3>Sobre o veículo:</h3>
-            <p>Marca: <span>{this.state.carInformation.marca}</span></p>
-            <p>Modelo: <span>{this.state.carInformation.name}</span></p>
-            <p>Combustível: <span>{this.state.carInformation.combustivel}</span></p>
-            <p>Ano: <span>{this.state.carInformation.ano_modelo}</span></p>
+            <p>Marca: <span>{this.state.carInformation.Marca}</span></p>
+            <p>Modelo: <span>{this.state.carInformation.Modelo}</span></p>
+            <p>Combustível: <span>{this.state.carInformation.Combustivel}</span></p>
+            <p>Ano: <span>{this.state.carInformation.AnoModelo}</span></p>
             <div className='price-content'>
               <p>Preço Médio</p>
-              <p className='price'>{this.state.carInformation.preco}</p>
-              <p className='reference'>{this.state.carInformation.referencia}</p>
+              <p className='price'>{this.state.carInformation.Valor}</p>
+              <p className='reference'>{this.state.carInformation.MesReferencia}</p>
             </div>
             <Link to='/' className='link'>Ver outros modelos</Link>
           </div>
