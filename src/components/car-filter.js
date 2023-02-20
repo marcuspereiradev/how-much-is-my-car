@@ -39,7 +39,7 @@ class CarFilter extends Component {
 
     const models = await FipeAPI.fetchCarModels(brandId);
 
-    this.setState({ models, brandId })
+    this.setState({ models: models.modelos, brandId })
   }
 
   handleChangeModel = async (event) => {
