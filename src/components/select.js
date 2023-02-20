@@ -6,7 +6,7 @@ const Select = ({onChange, placeholder, collection, disabled}) => (
     <option value=''>{placeholder}</option>
     {
       collection.map((item) => {
-        return <option key={item.id} value={item.id}>{item.name}</option>
+        return <option key={item.codigo} value={item.codigo}>{item.nome}</option>
       })
     }
   </select>
