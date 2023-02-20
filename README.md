@@ -19,7 +19,7 @@
 #  Features
 
 * Find the average price of your car based on the data in the table [FIPE](https://www.fipe.org.br/).
-* Consuming [FIPE API](http://fipeapi.appspot.com/) to find cars and average prices.
+* Consuming [FIPE API](https://deividfortuna.github.io/fipe/) to find cars and average prices.
 * You can see this project on [Surge](https://surge.sh/) [checking here](http://quantovalemeucarro.surge.sh/)
 
 </br>
